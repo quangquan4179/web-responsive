@@ -1,22 +1,27 @@
-
-import { BrowserRouter as Router}from 'react-router-dom'
-import Navbar from './components/layout/Navbar'
-function App() {
+import React,{Fragment} from "react";
+import { BrowserRouter as Router,Route,Switch } from "react-router-dom";
+import Layout from "./components/layout/Layout";
+import Register from "./components/auth/Register";
+import Login from "./components/auth/Login";
+import ForgotPassWord from "./components/auth/ForgotPassword";
+import Checkout from "./components/auth/Checkout";
+const App=()=> {
   return (
-    <div className="main">
-      <Router>
-        <Navbar />
+    <Fragment>
+      <div >
+        <Router>
 
-        <div className="grid wide">
-          <div className="row">
-            <div className="col l-6 l-o-3 ">
-              <h1>hello</h1>
-            </div>
-            
-          </div>
-        </div>
-      </Router>
-    </div>
+         
+          <Switch>
+            <Route exact path="/" component={Layout}/>
+            <Route path="/register" component={Register}/>
+            <Route path="/login" component={Login}/>
+            <Route path="/forgotpassword" component={ForgotPassWord}/>
+            <Route path="/checkout" component={Checkout}/>
+          </Switch>
+        </Router>
+      </div>
+    </Fragment>
   );
 }
 
